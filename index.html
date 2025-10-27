@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <title>Nora Saç Ekimi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .menu-toggle {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            background: #4c9241;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            width: 40px;
+            height: 40px;
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .kisabilgi {
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            padding: 10px;
+        }
+
+        .kutu1 {
+            margin: 0 15px;
+        }
+
+        .menucubugu {
+            display: flex;
+            position: relative;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .menucubugu ul {
+            list-style: none;
+            display: flex;
+        }
+
+        .menucubugu ul li {
+            margin: 0 15px;
+        }
+
+        .menucubugu ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+        }
+
+        .banner {
+            background-image: url('https://picsum.photos/1200/600?random=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            /* Banner sabit yüksek */
+            transition: opacity 1s ease-in-out;
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .banner.fade-out .banner-content {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .banner.fade-out {
+            opacity: 0.3;
+        }
+
+        .icerik {
+            padding: 20px;
+            margin-bottom: auto;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        @media (max-width: 900px) {
+            .kisabilgi {
+                display: none;
+            }
+
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                background-color: #4c9241;
+                z-index: 1000;
+            }
+
+            .menu-toggle i {
+                font-size: 20px;
+                color: white;
+            }
+
+            .menucubugu {
+                justify-content: space-between;
+                padding: 15px 20px;
+            }
+
+            /* Menü kapanmış hali */
+            .menucubugu ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 0;
+                right: 0;
+                height: 100%;
+                width: 60%;
+                /* ✅ Genişlik azaltıldı */
+                background-color: #4c9241;
+                padding: 30px 0;
+                z-index: 999;
+                transition: all 0.4s ease;
+                opacity: 0;
+                transform: translateX(100%);
+            }
+
+            /* Menü açıkken */
+            .menucubugu ul.active {
+                display: flex;
+                opacity: 1;
+                transform: translateX(0);
+                height: 100vh;
+                /* ✅ Ekran yüksekliği tam */
+            }
+
+            .menucubugu ul li {
+                margin: 15px 0;
+                text-align: center;
+            }
+
+            .menucubugu ul li a {
+                color: white;
+                display: block;
+                padding: 10px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="kisabilgi">
+            <div class="kutu1">0541 5662 4921</div>
+            <div class="kutu1">halide edip adıvar mah</div>
+            <div class="kutu1">serapekin12@gmail.com</div>
+            <div class="kutu1">sosyal medya</div>
+        </div>
+
+        <nav class="menucubugu">
+            <h2 class="logo">nora1</h2>
+
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <ul>
+                <li><a href="#">hakkımızda</a></li>
+                <li><a href="#">hizmetler</a></li>
+                <li><a href="#">portfolyo</a></li>
+                <li><a href="#">blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="banner">
+            <div class="banner-content">
+                <h1>Saç Ekimi</h1>
+                <p>Saç ekimi ile ilgili detaylı bilgi almak için bizimle iletişime geçin. Saçınız artık sizin için bir
+                    sorun olmaktan çıksın.</p>
+                <button>İletişime Geç</button>
+            </div>
+        </div>
+
+        <section class="icerik">
+            <h2>Saç Ekimi Nedir?</h2>
+            <p>Saç ekimi, saç dökülmesi yaşayan bireylerin saçlarını geri kazanmak için uygulanan bir cerrahi
+                prosedürdür...</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Tüm hakları saklıdır. &copy; 2023</p>
+    </footer>
+
+    <script>
+        const resimler = [
+            'https://picsum.photos/1200/600?random=1',
+            'https://picsum.photos/1200/600?random=2',
+            'https://picsum.photos/1200/600?random=3',
+            'https://picsum.photos/1200/600?random=4'
+        ];
+
+        const yazilar = [
+            'Saç ekimi ile ilgili detaylı bilgi almak için bizimle iletişime geçin. Saçınız artık sizin için bir sorun olmaktan çıksın.',
+            'Profesyonel saç ekimi hizmetlerimizle doğal ve kalıcı sonuçlar elde edin.',
+            'Saç dökülmesine son! Uzman ekibimizle sağlıklı saçlara kavuşun.',
+            'En yeni tekniklerle saç ekiminde mükemmel sonuçlar.'
+        ];
+
+        const basliklar = [
+            'Saç Ekimi',
+            'Profesyonel Hizmet',
+            'Saç Dökülmesine Son',
+            'Modern Teknikler'
+        ];
+
+        let index = 0;
+        const banner = document.querySelector('.banner');
+        const bannerYazi = banner.querySelector('p');
+        const bannerBaslik = banner.querySelector('h1');
+
+        function resimGecis() {
+            banner.classList.add('fade-out');
+            setTimeout(() => {
+                index = (index + 1) % resimler.length;
+                banner.style.backgroundImage = `url('${resimler[index]}')`;
+                bannerYazi.textContent = yazilar[index];
+                bannerBaslik.textContent = basliklar[index];
+                banner.classList.remove('fade-out');
+            }, 700);
+        }
+
+        setInterval(resimGecis, 5000);
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const menu = document.querySelector('.menucubugu ul');
+
+        menuToggle.addEventListener('click', () => {
+            menu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-times');
+        });
+
+        window.addEventListener('load', () => {
+            banner.style.backgroundImage = `url('${resimler[0]}')`;
+        });
+    </script>
+</body>
+
+</html>
