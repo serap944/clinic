@@ -198,29 +198,17 @@
 </head>
 
 <body>
-    <header>
-        <div class="kisabilgi">
-            <div class="kutu1">0541 5662 4921</div>
-            <div class="kutu1">halide edip adıvar mah</div>
-            <div class="kutu1">serapekin12@gmail.com</div>
-            <div class="kutu1">sosyal medya</div>
-        </div>
 
-        <nav class="menucubugu">
-            <h2 class="logo">nora1</h2>
+    <div id="header"></div>
 
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header').innerHTML = data;
+            });
+    </script>
 
-            <ul>
-                <li><a href="#">hakkımızda</a></li>
-                <li><a href="#">hizmetler</a></li>
-                <li><a href="#">portfolyo</a></li>
-                <li><a href="#">blog</a></li>
-            </ul>
-        </nav>
-    </header>
 
     <main>
         <div class="banner">
@@ -239,9 +227,16 @@
         </section>
     </main>
 
-    <footer>
-        <p>Tüm hakları saklıdır. &copy; 2023</p>
-    </footer>
+    <div id="footer"></div>
+
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('footer').innerHTML = data;
+            });
+    </script>
+
 
     <script>
         const resimler = [
