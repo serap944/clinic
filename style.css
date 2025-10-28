@@ -115,11 +115,13 @@
             padding: 20px;
             margin-bottom: auto;
         }
-
+/* Accordion container */
 .accordion {
     max-width: 800px;
     margin: 20px auto;
 }
+
+/* Her bir accordion item */
 .accordion-item {
     background: #fff;
     border-radius: 5px;
@@ -127,6 +129,8 @@
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+/* Başlık alanı */
 .accordion-baslik {
     cursor: pointer;
     padding: 15px 20px;
@@ -137,6 +141,8 @@
     background-color: #4a90e2;
     color: #fff;
 }
+
+/* Başlıktaki numara */
 .accordion-num {
     display: inline-block;
     width: 25px;
@@ -148,21 +154,33 @@
     line-height: 25px;
     margin-right: 10px;
 }
+
+/* Ok işareti */
 .accordion-ok {
     transition: transform 0.3s;
 }
+
+/* İçerik alanı */
 .accordion-icerik {
-    padding: 15px 20px;
-    display: none;
+    max-height: 0;            /* Başlangıçta gizli */
+    overflow: hidden;
+    padding: 0 20px;          /* Yan boşluk */
     background: #f0f0f0;
     color: #333;
+    transition: max-height 0.3s ease, padding 0.3s ease;
 }
+
+/* Açık olan accordion */
 .accordion-acik .accordion-icerik {
-    display: block;
+    max-height: 500px;        /* İçerik uzunluğuna göre ayarla */
+    padding: 15px 20px;
 }
+
+/* Açık olan itemin okunu döndür */
 .accordion-acik .accordion-ok {
-    transform: rotate(180deg); /* yukarı döner */
+    transform: rotate(180deg);
 }
+
 
         footer {
             display: flex;
