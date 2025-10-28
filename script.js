@@ -1,4 +1,6 @@
-   const resimler = [
+document.addEventListener("DOMContentLoaded", () => {  
+
+const resimler = [
             'images/sacekim (2).jpg',
             'images/sacekim1.jpg',
             'images/sacekim3.jpg',
@@ -37,6 +39,7 @@
 
         setInterval(resimGecis, 5000);
 
+   });
         const menuToggle = document.querySelector('.menu-toggle');
         const menu = document.querySelector('.menucubugu ul');
 
