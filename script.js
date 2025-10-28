@@ -1,3 +1,16 @@
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menucubugu ul');
+
+  menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    icon.classList.toggle('fa-bars');
+    icon.classList.toggle('fa-times');
+  });
+
+  window.addEventListener('load', () => {
+    banner.style.backgroundImage = `url('${resimler[0]}')`;
+  });
 
 
   const resimler = [
@@ -39,19 +52,6 @@
 
   setInterval(resimGecis, 5000);
 
-  const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menucubugu ul');
-
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-  });
-
-  window.addEventListener('load', () => {
-    banner.style.backgroundImage = `url('${resimler[0]}')`;
-  });
 
   
 // Accordion elementlerini seç
