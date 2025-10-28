@@ -1,18 +1,6 @@
-  const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menucubugu ul');
+document.addEventListener("DOMContentLoaded", () => {
 
-  menuToggle.addEventListener('click', () => {
-    menu.classList.toggle('active');
-    const icon = menuToggle.querySelector('i');
-    icon.classList.toggle('fa-bars');
-    icon.classList.toggle('fa-times');
-  });
-
-  window.addEventListener('load', () => {
-    banner.style.backgroundImage = `url('${resimler[0]}')`;
-  });
-
-
+  // BANNER RESİMLERİ
   const resimler = [
     'images/sacekim (2).jpg',
     'images/sacekim1.jpg',
@@ -39,6 +27,7 @@
   const bannerYazi = banner.querySelector('p');
   const bannerBaslik = banner.querySelector('h1');
 
+  // Banner arkaplan ve içerik geçişi
   function resimGecis() {
     banner.classList.add('fade-out');
     setTimeout(() => {
@@ -52,20 +41,40 @@
 
   setInterval(resimGecis, 5000);
 
+  // Banner ilk resim
+  banner.style.backgroundImage = `url('${resimler[0]}')`;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    const accordionOgeler = document.querySelectorAll('.accordion-item');
+  // MENÜ TOGGLE
+  const menuToggle = document.querySelector('.menu-toggle');
+  const menu = document.querySelector('.menucubugu ul');
 
-    accordionOgeler.forEach((item) => {
-        const baslik = item.querySelector('.accordion-baslik');
-
-        baslik.addEventListener('click', () => {
-            if(item.classList.contains('accordion-acik')){
-                item.classList.remove('accordion-acik');
-            } else {
-                accordionOgeler.forEach(i => i.classList.remove('accordion-acik'));
-                item.classList.add('accordion-acik');
-            }
-        });
+  if(menuToggle && menu) {
+    menuToggle.addEventListener('click', () => {
+      menu.classList.toggle('active');
+      const ikon = menuToggle.querySelector('i');
+      if(ikon){
+        ikon.classList.toggle('fa-bars');
+        ikon.classList.toggle('fa-times');
+      }
     });
+  }
+
+  // ACCORDION
+  const accordionOgeler = document.querySelectorAll('.accordion-item');
+
+  accordionOgeler.forEach((item) => {
+    const baslik = item.querySelector('.accordion-baslik');
+
+    if(baslik){
+      baslik.addEventListener('click', () => {
+        if(item.classList.contains('accordion-acik')){
+          item.classList.remove('accordion-acik');
+        } else {
+          accordionOgeler.forEach(i => i.classList.remove('accordion-acik'));
+          item.classList.add('accordion-acik');
+        }
+      });
+    }
+  });
+
 });
