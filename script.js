@@ -53,14 +53,13 @@
     banner.style.backgroundImage = `url('${resimler[0]}')`;
   });
 
-  // ACCORDION SCRIPT
+  
 const accordionOgeler = document.querySelectorAll('.accordion-item');
 
 accordionOgeler.forEach((item) => {
     const baslik = item.querySelector('.accordion-baslik');
 
     baslik.addEventListener('click', () => {
-        // Daha önce açıksa kapat
         if(item.classList.contains('accordion-acik')) {
             item.classList.remove('accordion-acik');
         } else {
@@ -70,5 +69,4 @@ accordionOgeler.forEach((item) => {
         }
     });
 });
-
 
