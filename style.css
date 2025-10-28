@@ -155,13 +155,10 @@
     height: auto;
     border-radius: 5px;
 }
-
-/* ACCORDION */
 .accordion {
-    max-width: 1024px;
-    margin: 20px auto 0 auto;
+    max-width: 800px;
+    margin: 20px auto;
 }
-
 .accordion-item {
     background: #fff;
     border-radius: 5px;
@@ -169,18 +166,16 @@
     overflow: hidden;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
-
 .accordion-baslik {
     cursor: pointer;
     padding: 15px 20px;
     font-weight: bold;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: flex-start;
     background-color: #4a90e2;
     color: #fff;
 }
-
 .accordion-num {
     display: inline-block;
     width: 25px;
@@ -189,21 +184,23 @@
     color: #4a90e2;
     border-radius: 50%;
     text-align: center;
-    margin-right: 10px;
     line-height: 25px;
-    font-weight: bold;
+    margin-right: 10px;
 }
-
+.accordion-ok {
+    transition: transform 0.3s;
+}
 .accordion-icerik {
     padding: 15px 20px;
     display: none;
     background: #f0f0f0;
     color: #333;
 }
-
-/* ACCORDION AÇIK */
 .accordion-acik .accordion-icerik {
     display: block;
+}
+.accordion-acik .accordion-ok {
+    transform: rotate(180deg); /* yukarı döner */
 }
 
         footer {
