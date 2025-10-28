@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {  
+
 
   const resimler = [
     'images/sacekim (2).jpg',
@@ -71,4 +71,4 @@ accordionOgeler.forEach((item) => {
     });
 });
 
-});
+
