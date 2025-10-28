@@ -54,19 +54,22 @@
   });
 
   
+// Accordion elementlerini seç
 const accordionOgeler = document.querySelectorAll('.accordion-item');
 
 accordionOgeler.forEach((item) => {
     const baslik = item.querySelector('.accordion-baslik');
-
+    
+    // Başlığa tıklandığında çalışacak fonksiyon
     baslik.addEventListener('click', () => {
-        if(item.classList.contains('accordion-acik')) {
+        // Eğer zaten açıksa kapat
+        if(item.classList.contains('accordion-acik')){
             item.classList.remove('accordion-acik');
         } else {
             // Bütün açıkları kapat
             accordionOgeler.forEach(i => i.classList.remove('accordion-acik'));
+            // Tıklananı aç
             item.classList.add('accordion-acik');
         }
     });
 });
-
