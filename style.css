@@ -116,45 +116,6 @@
             margin-bottom: auto;
         }
 
-
-/* SECTION */
-.section-surec {
-    background-color: #a3c6e6; /* bg-custom-third */
-    padding: 80px 20px; /* py-20 */
-    max-width: 100vw;
-    overflow-x: hidden;
-}
-
-/* KONTEYNER */
-.konteyner {
-    max-width: 1280px;
-    margin: 0 auto;
-}
-
-/* BAŞLIKLAR */
-.baslik-kucuk {
-    font-size: 15px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    margin-bottom: 10px;
-    color: #000;
-    font-weight: normal;
-}
-
-.baslik-buyuk {
-    font-size: 46px;
-    line-height: 1.25;
-    margin-bottom: 20px;
-    color: #000;
-    font-weight: normal;
-}
-
-/* GÖRSEL */
-.gorsel-surec img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
 .accordion {
     max-width: 800px;
     margin: 20px auto;
