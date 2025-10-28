@@ -53,4 +53,22 @@ document.addEventListener("DOMContentLoaded", () => {
     banner.style.backgroundImage = `url('${resimler[0]}')`;
   });
 
+  // ACCORDION SCRIPT
+const accordionOgeler = document.querySelectorAll('.accordion-item');
+
+accordionOgeler.forEach((item) => {
+    const baslik = item.querySelector('.accordion-baslik');
+
+    baslik.addEventListener('click', () => {
+        // Daha önce açıksa kapat
+        if(item.classList.contains('accordion-acik')) {
+            item.classList.remove('accordion-acik');
+        } else {
+            // Bütün açıkları kapat
+            accordionOgeler.forEach(i => i.classList.remove('accordion-acik'));
+            item.classList.add('accordion-acik');
+        }
+    });
+});
+
 });
