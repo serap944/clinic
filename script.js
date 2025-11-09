@@ -1,80 +1,50 @@
-document.addEventListener("DOMContentLoaded", () => {
+const hamburger = document.getElementById('hamburger');
+const navMenu = document.getElementById('nav-menu');
+const servicesDropdown = document.getElementById('services-dropdown');
+const servicesLink = document.querySelector('.nav-item:nth-child(3) .nav-link');
 
-  // BANNER RESİMLERİ
-  const resimler = [
-    'images/sacekim (2).jpg',
-    'images/sacekim1.jpg',
-    'images/sacekim3.jpg',
-    'images/kas.jpg'
-  ];
+// Hamburger menü aç/kapa
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
 
-  const yazilar = [
-    'Saç ekimi ile ilgili detaylı bilgi almak için bizimle iletişime geçin. Saçınız artık sizin için bir sorun olmaktan çıksın.',
-    'Profesyonel saç ekimi hizmetlerimizle doğal ve kalıcı sonuçlar elde edin.',
-    'Saç dökülmesine son! Uzman ekibimizle sağlıklı saçlara kavuşun.',
-    'En yeni tekniklerle saç ekiminde mükemmel sonuçlar.'
-  ];
+// Mobilde Hizmetler alt menüsünü aç/kapa
+servicesLink.addEventListener('click', (e) => {
+    if (window.innerWidth <= 768) {
+        e.preventDefault();
+        servicesDropdown.classList.toggle('active');
 
-  const basliklar = [
-    'Saç Ekimi',
-    'Profesyonel Hizmet',
-    'Saç Dökülmesine Son',
-    'Modern Teknikler'
-  ];
-
-  let index = 0;
-  const banner = document.querySelector('.banner');
-  const bannerYazi = banner.querySelector('p');
-  const bannerBaslik = banner.querySelector('h1');
-
-  // Banner arkaplan ve içerik geçişi
-  function resimGecis() {
-    banner.classList.add('fade-out');
-    setTimeout(() => {
-      index = (index + 1) % resimler.length;
-      banner.style.backgroundImage = `url('${resimler[index]}')`;
-      bannerYazi.textContent = yazilar[index];
-      bannerBaslik.textContent = basliklar[index];
-      banner.classList.remove('fade-out');
-    }, 700);
-  }
-
-  setInterval(resimGecis, 5000);
-
-  // Banner ilk resim
-  banner.style.backgroundImage = `url('${resimler[0]}')`;
-
-  // MENÜ TOGGLE
-  const menuToggle = document.querySelector('.menu-toggle');
-  const menu = document.querySelector('.menucubugu ul');
-
-  if(menuToggle && menu) {
-    menuToggle.addEventListener('click', () => {
-      menu.classList.toggle('active');
-      const ikon = menuToggle.querySelector('i');
-      if(ikon){
-        ikon.classList.toggle('fa-bars');
-        ikon.classList.toggle('fa-times');
-      }
-    });
-  }
-
-  // ACCORDION
-  const accordionOgeler = document.querySelectorAll('.accordion-item');
-
-  accordionOgeler.forEach((item) => {
-    const baslik = item.querySelector('.accordion-baslik');
-
-    if(baslik){
-      baslik.addEventListener('click', () => {
-        if(item.classList.contains('accordion-acik')){
-          item.classList.remove('accordion-acik');
+        // Alt menü ikonunu değiştir
+        const icon = servicesLink.querySelector('i');
+        if (servicesDropdown.classList.contains('active')) {
+            icon.classList.remove('fa-chevron-down');
+            icon.classList.add('fa-chevron-up');
         } else {
-          accordionOgeler.forEach(i => i.classList.remove('accordion-acik'));
-          item.classList.add('accordion-acik');
+            icon.classList.remove('fa-chevron-up');
+            icon.classList.add('fa-chevron-down');
         }
-      });
     }
-  });
+});
 
+// Menü dışına tıklandığında menüyü kapat
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Ekran boyutu değiştiğinde menüyü sıfırla
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        servicesDropdown.classList.remove('active');
+
+        // İkonu eski haline getir
+        const icon = servicesLink.querySelector('i');
+        icon.classList.remove('fa-chevron-up');
+        icon.classList.add('fa-chevron-down');
+    }
 });
