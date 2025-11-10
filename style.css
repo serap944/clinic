@@ -12,6 +12,8 @@ body {
     line-height: 1.6;
 }
 
+
+
 .header {
     position: fixed;
     top: 0;
@@ -192,6 +194,48 @@ body {
     top: 10px;
     transform: rotate(-135deg);
 }
+
+        .banner {
+            background-image: url('https://picsum.photos/1200/600?random=1');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            min-height: 70vh;
+            /* Banner sabit yüksek */
+            transition: opacity 1s ease-in-out;
+        }
+
+        .banner::before {
+
+            content: '';
+            /*content: '' → Boş bir içerik oluşturur (pseudo-element için gerekli)*/
+            position: absolute;
+            /* position: absolute → Ebeveynine göre konumlandırılır */
+            inset: 0;
+            /* inset: 0 → Tüm kenarlardan 0 uzaklık (üst, sağ, alt, sol - modern kısayol) */
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .banner-content {
+            position: relative;
+            z-index: 2;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .banner.fade-out .banner-content {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        .banner.fade-out {
+            opacity: 0.3;
+        }
+
 
        .icerik {
             padding: 20px;
